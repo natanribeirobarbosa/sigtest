@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula6</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    button { padding: 10px 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Teste - Aula6</h1>
+  <form id="form" onsubmit="return checkAnswers()">
+<div class='question'>
+<p>1. O que toda empresa precisa fazer?</p>
+<label><input type='radio' name='q1' value='Vender, produzir, RH e finanças'> Vender, produzir, RH e finanças</label><br>
+<label><input type='radio' name='q1' value='Criar apps'> Criar apps</label><br>
+<label><input type='radio' name='q1' value='Gerar conteúdo'> Gerar conteúdo</label><br>
+</div>
+<div class='question'>
+<p>2. Para ter sucesso, a empresa deve:</p>
+<label><input type='radio' name='q2' value='Ignorar mudanças'> Ignorar mudanças</label><br>
+<label><input type='radio' name='q2' value='Seguir a tradição'> Seguir a tradição</label><br>
+<label><input type='radio' name='q2' value='Monitorar tendências'> Monitorar tendências</label><br>
+</div>
+<div class='question'>
+<p>3. TI é indispensável por garantir:</p>
+<label><input type='radio' name='q3' value='Custo alto'> Custo alto</label><br>
+<label><input type='radio' name='q3' value='Agilidade e precisão'> Agilidade e precisão</label><br>
+<label><input type='radio' name='q3' value='Desemprego'> Desemprego</label><br>
+</div>
+<div class='question'>
+<p>4. SI transformam dados em:</p>
+<label><input type='radio' name='q4' value='Planilhas'> Planilhas</label><br>
+<label><input type='radio' name='q4' value='Relatórios inúteis'> Relatórios inúteis</label><br>
+<label><input type='radio' name='q4' value='Informações úteis'> Informações úteis</label><br>
+</div>
+<div class='question'>
+<p>5. Dado é:</p>
+<label><input type='radio' name='q5' value='Tratado'> Tratado</label><br>
+<label><input type='radio' name='q5' value='Bruto'> Bruto</label><br>
+<label><input type='radio' name='q5' value='Final'> Final</label><br>
+</div>
+<div class='question'>
+<p>6. Informação é:</p>
+<label><input type='radio' name='q6' value='Confusa'> Confusa</label><br>
+<label><input type='radio' name='q6' value='Dado tratado'> Dado tratado</label><br>
+<label><input type='radio' name='q6' value='Inútil'> Inútil</label><br>
+</div>
+<div class='question'>
+<p>7. TI é formada por:</p>
+<label><input type='radio' name='q7' value='Hardware e dados'> Hardware e dados</label><br>
+<label><input type='radio' name='q7' value='Telecomunicações e gestão'> Telecomunicações e gestão</label><br>
+<label><input type='radio' name='q7' value='Todas anteriores'> Todas anteriores</label><br>
+</div>
+<div class='question'>
+<p>8. SI apoiam decisões em quais níveis?</p>
+<label><input type='radio' name='q8' value='Político'> Político</label><br>
+<label><input type='radio' name='q8' value='Operacional, gerencial e estratégico'> Operacional, gerencial e estratégico</label><br>
+<label><input type='radio' name='q8' value='Financeiro apenas'> Financeiro apenas</label><br>
+</div>
+<div class='question'>
+<p>9. TI é usada em empresas de que porte?</p>
+<label><input type='radio' name='q9' value='Grandes'> Grandes</label><br>
+<label><input type='radio' name='q9' value='Pequenas'> Pequenas</label><br>
+<label><input type='radio' name='q9' value='Todas'> Todas</label><br>
+</div>
+<div class='question'>
+<p>10. Um benefício da TI é:</p>
+<label><input type='radio' name='q10' value='Burocracia'> Burocracia</label><br>
+<label><input type='radio' name='q10' value='Segurança'> Segurança</label><br>
+<label><input type='radio' name='q10' value='Desorganização'> Desorganização</label><br>
+</div>
+<button type="button" onclick="salvar()">Próxima Aula</button>
+  </form>
+  <p id="score" style="font-weight: bold;"></p>
+<script>
+  function checkAnswers() {
+    let correct = 0;
+    const total = 10;
+    const form = document.querySelector('form');
+    const answers = form.querySelectorAll('input[type="radio"]:checked');
+    answers.forEach(answer => {
+      if (answer.value === "true") {
+        correct++;
+      }
+    });
+    const scoreText = `Você acertou ${correct} de ${total} perguntas.`;
+    document.getElementById("score").innerText = scoreText;
+    return false; // impede o envio do formulário
+  }
+</script>
+
+  <script>
+    function salvar() {
+      let acertos = 0;
+      const respostas = {
+        q1: `Vender, produzir, RH e finanças`,
+        q2: `Monitorar tendências`,
+        q3: `Agilidade e precisão`,
+        q4: `Informações úteis`,
+        q5: `Bruto`,
+        q6: `Dado tratado`,
+        q7: `Todas anteriores`,
+        q8: `Operacional, gerencial e estratégico`,
+        q9: `Todas`,
+        q10: `Segurança`,
+      };
+      for (let i = 1; i <= 10; i++) {
+        let marcada = document.querySelector(`input[name='q${i}']:checked`);
+        if (marcada && marcada.value === respostas[`q${i}`]) acertos++;
+      }
+      localStorage.setItem('nota_aula6', acertos);
+      window.location.href = 'aula7.html';
+    }
+  </script>
+</body>
+</html>
