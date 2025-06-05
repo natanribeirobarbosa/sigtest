@@ -11,7 +11,7 @@
 </head>
 <body>
   <h1>Teste - Temas_trabalhos</h1>
-  <form id="form">
+  <form id="form" onsubmit="return checkAnswers()">
 <div class='question'>
 <p>1. CRM serve para:</p>
 <label><input type='radio' name='q1' value='Gerenciar clientes'> Gerenciar clientes</label><br>
@@ -74,6 +74,24 @@
 </div>
 <button type="button" onclick="salvar()">Próxima Aula</button>
   </form>
+  <p id="score" style="font-weight: bold;"></p>
+<script>
+  function checkAnswers() {
+    let correct = 0;
+    const total = 10;
+    const form = document.querySelector('form');
+    const answers = form.querySelectorAll('input[type="radio"]:checked');
+    answers.forEach(answer => {
+      if (answer.value === "true") {
+        correct++;
+      }
+    });
+    const scoreText = `Você acertou ${correct} de ${total} perguntas.`;
+    document.getElementById("score").innerText = scoreText;
+    return false; // impede o envio do formulário
+  }
+</script>
+
   <script>
     function salvar() {
       let acertos = 0;
