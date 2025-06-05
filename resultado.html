@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><title>Resultado Final</title></head>
+<body>
+  <h1>Resultado Final</h1>
+  <p id="resultado"></p>
+  <script>
+    const secoes = ['aula5', 'aula6', 'aula7', 'aula8', 'mrp_erp', 'temas_trabalhos'];
+    let total = 0;
+    secoes.forEach(sec => {
+      total += Number(localStorage.getItem(`nota_${sec}`) || 0);
+    });
+    document.getElementById("resultado").innerText = `Você acertou ${total} de 60 questões.`;
+  </script>
+</body>
+</html>

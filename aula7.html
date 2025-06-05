@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula7</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    button { padding: 10px 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Teste - Aula7</h1>
+  <form id="form">
+<div class='question'>
+<p>1. Qual o desafio da infraestrutura tecnológica?</p>
+<label><input type='radio' name='q1' value='Custos'> Custos</label><br>
+<label><input type='radio' name='q1' value='Integração'> Integração</label><br>
+<label><input type='radio' name='q1' value='Design'> Design</label><br>
+</div>
+<div class='question'>
+<p>2. O que facilita a integração?</p>
+<label><input type='radio' name='q2' value='Cabo coaxial'> Cabo coaxial</label><br>
+<label><input type='radio' name='q2' value='Redes digitais e internet'> Redes digitais e internet</label><br>
+<label><input type='radio' name='q2' value='USB'> USB</label><br>
+</div>
+<div class='question'>
+<p>3. Qual cabo é ideal para redes locais?</p>
+<label><input type='radio' name='q3' value='Fibra óptica'> Fibra óptica</label><br>
+<label><input type='radio' name='q3' value='Par trançado'> Par trançado</label><br>
+<label><input type='radio' name='q3' value='Satélite'> Satélite</label><br>
+</div>
+<div class='question'>
+<p>4. Qual é mais caro?</p>
+<label><input type='radio' name='q4' value='Par trançado'> Par trançado</label><br>
+<label><input type='radio' name='q4' value='Fibra óptica'> Fibra óptica</label><br>
+<label><input type='radio' name='q4' value='Coaxial'> Coaxial</label><br>
+</div>
+<div class='question'>
+<p>5. Redes sem fio usam:</p>
+<label><input type='radio' name='q5' value='Cabos'> Cabos</label><br>
+<label><input type='radio' name='q5' value='Rádio ou satélite'> Rádio ou satélite</label><br>
+<label><input type='radio' name='q5' value='Bluetooth apenas'> Bluetooth apenas</label><br>
+</div>
+<div class='question'>
+<p>6. Celular é considerado:</p>
+<label><input type='radio' name='q6' value='Telefone fixo'> Telefone fixo</label><br>
+<label><input type='radio' name='q6' value='Computador de mesa'> Computador de mesa</label><br>
+<label><input type='radio' name='q6' value='Plataforma digital portátil'> Plataforma digital portátil</label><br>
+</div>
+<div class='question'>
+<p>7. Smartphones são:</p>
+<label><input type='radio' name='q7' value='Telefones antigos'> Telefones antigos</label><br>
+<label><input type='radio' name='q7' value='Computadores de mão'> Computadores de mão</label><br>
+<label><input type='radio' name='q7' value='Apenas para fotos'> Apenas para fotos</label><br>
+</div>
+<div class='question'>
+<p>8. Convergência tecnológica integra:</p>
+<label><input type='radio' name='q8' value='Som apenas'> Som apenas</label><br>
+<label><input type='radio' name='q8' value='Voz, dados e imagens'> Voz, dados e imagens</label><br>
+<label><input type='radio' name='q8' value='Bluetooth e rádio'> Bluetooth e rádio</label><br>
+</div>
+<div class='question'>
+<p>9. Equipamentos modernos possuem:</p>
+<label><input type='radio' name='q9' value='Mobilidade e interatividade'> Mobilidade e interatividade</label><br>
+<label><input type='radio' name='q9' value='Som estéreo'> Som estéreo</label><br>
+<label><input type='radio' name='q9' value='Botões físicos'> Botões físicos</label><br>
+</div>
+<div class='question'>
+<p>10. Exemplo de convergência:</p>
+<label><input type='radio' name='q10' value='Fita cassete'> Fita cassete</label><br>
+<label><input type='radio' name='q10' value='Celular 4G com GPS'> Celular 4G com GPS</label><br>
+<label><input type='radio' name='q10' value='Mouse óptico'> Mouse óptico</label><br>
+</div>
+<button type="button" onclick="salvar()">Próxima Aula</button>
+  </form>
+  <script>
+    function salvar() {
+      let acertos = 0;
+      const respostas = {
+        q1: `Integração`,
+        q2: `Redes digitais e internet`,
+        q3: `Par trançado`,
+        q4: `Fibra óptica`,
+        q5: `Rádio ou satélite`,
+        q6: `Plataforma digital portátil`,
+        q7: `Computadores de mão`,
+        q8: `Voz, dados e imagens`,
+        q9: `Mobilidade e interatividade`,
+        q10: `Celular 4G com GPS`,
+      };
+      for (let i = 1; i <= 10; i++) {
+        let marcada = document.querySelector(`input[name='q${i}']:checked`);
+        if (marcada && marcada.value === respostas[`q${i}`]) acertos++;
+      }
+      localStorage.setItem('nota_aula7', acertos);
+      window.location.href = 'aula8.html';
+    }
+  </script>
+</body>
+</html>

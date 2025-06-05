@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula8</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    button { padding: 10px 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Teste - Aula8</h1>
+  <form id="form">
+<div class='question'>
+<p>1. SCM conecta quem?</p>
+<label><input type='radio' name='q1' value='Clientes'> Clientes</label><br>
+<label><input type='radio' name='q1' value='Fornecedores, fabricantes e clientes'> Fornecedores, fabricantes e clientes</label><br>
+<label><input type='radio' name='q1' value='Usuários'> Usuários</label><br>
+</div>
+<div class='question'>
+<p>2. SCM garante que os produtos cheguem:</p>
+<label><input type='radio' name='q2' value='Parados'> Parados</label><br>
+<label><input type='radio' name='q2' value='Com atraso'> Com atraso</label><br>
+<label><input type='radio' name='q2' value='De forma eficiente'> De forma eficiente</label><br>
+</div>
+<div class='question'>
+<p>3. Objetivo da SCM:</p>
+<label><input type='radio' name='q3' value='Mais papelada'> Mais papelada</label><br>
+<label><input type='radio' name='q3' value='Reduzir custos e agregar valor'> Reduzir custos e agregar valor</label><br>
+<label><input type='radio' name='q3' value='Criar burocracia'> Criar burocracia</label><br>
+</div>
+<div class='question'>
+<p>4. Exemplo de personalização na SCM:</p>
+<label><input type='radio' name='q4' value='ALL'> ALL</label><br>
+<label><input type='radio' name='q4' value='Dell'> Dell</label><br>
+<label><input type='radio' name='q4' value='Fibria'> Fibria</label><br>
+</div>
+<div class='question'>
+<p>5. Ponto crítico da SCM:</p>
+<label><input type='radio' name='q5' value='Simplicidade'> Simplicidade</label><br>
+<label><input type='radio' name='q5' value='Complexidade'> Complexidade</label><br>
+<label><input type='radio' name='q5' value='Preços baixos'> Preços baixos</label><br>
+</div>
+<div class='question'>
+<p>6. ERP integra:</p>
+<label><input type='radio' name='q6' value='Somente RH'> Somente RH</label><br>
+<label><input type='radio' name='q6' value='Todas áreas da empresa'> Todas áreas da empresa</label><br>
+<label><input type='radio' name='q6' value='Apenas vendas'> Apenas vendas</label><br>
+</div>
+<div class='question'>
+<p>7. Componente do ERP:</p>
+<label><input type='radio' name='q7' value='Design'> Design</label><br>
+<label><input type='radio' name='q7' value='Financeiro'> Financeiro</label><br>
+<label><input type='radio' name='q7' value='Usuário final'> Usuário final</label><br>
+</div>
+<div class='question'>
+<p>8. Benefício do ERP:</p>
+<label><input type='radio' name='q8' value='Custos altos'> Custos altos</label><br>
+<label><input type='radio' name='q8' value='Integração entre departamentos'> Integração entre departamentos</label><br>
+<label><input type='radio' name='q8' value='Mais papel'> Mais papel</label><br>
+</div>
+<div class='question'>
+<p>9. ERP oferece visão:</p>
+<label><input type='radio' name='q9' value='Local'> Local</label><br>
+<label><input type='radio' name='q9' value='Centralizada e estratégica'> Centralizada e estratégica</label><br>
+<label><input type='radio' name='q9' value='Parcial'> Parcial</label><br>
+</div>
+<div class='question'>
+<p>10. Desvantagem do ERP:</p>
+<label><input type='radio' name='q10' value='Resistência interna'> Resistência interna</label><br>
+<label><input type='radio' name='q10' value='Melhoria da equipe'> Melhoria da equipe</label><br>
+<label><input type='radio' name='q10' value='Motivação'> Motivação</label><br>
+</div>
+<button type="button" onclick="salvar()">Próxima Aula</button>
+  </form>
+  <script>
+    function salvar() {
+      let acertos = 0;
+      const respostas = {
+        q1: `Fornecedores, fabricantes e clientes`,
+        q2: `De forma eficiente`,
+        q3: `Reduzir custos e agregar valor`,
+        q4: `Dell`,
+        q5: `Complexidade`,
+        q6: `Todas áreas da empresa`,
+        q7: `Financeiro`,
+        q8: `Integração entre departamentos`,
+        q9: `Centralizada e estratégica`,
+        q10: `Resistência interna`,
+      };
+      for (let i = 1; i <= 10; i++) {
+        let marcada = document.querySelector(`input[name='q${i}']:checked`);
+        if (marcada && marcada.value === respostas[`q${i}`]) acertos++;
+      }
+      localStorage.setItem('nota_aula8', acertos);
+      window.location.href = 'mrp_erp.html';
+    }
+  </script>
+</body>
+</html>

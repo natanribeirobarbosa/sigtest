@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mrp_erp</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    button { padding: 10px 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Teste - Mrp_erp</h1>
+  <form id="form">
+<div class='question'>
+<p>1. MRP foi criado para:</p>
+<label><input type='radio' name='q1' value='Gerenciar vendas'> Gerenciar vendas</label><br>
+<label><input type='radio' name='q1' value='Planejar materiais'> Planejar materiais</label><br>
+<label><input type='radio' name='q1' value='Fazer marketing'> Fazer marketing</label><br>
+</div>
+<div class='question'>
+<p>2. ERP surgiu nos anos:</p>
+<label><input type='radio' name='q2' value='60'> 60</label><br>
+<label><input type='radio' name='q2' value='80'> 80</label><br>
+<label><input type='radio' name='q2' value='90'> 90</label><br>
+</div>
+<div class='question'>
+<p>3. ERP é usado em:</p>
+<label><input type='radio' name='q3' value='Indústrias apenas'> Indústrias apenas</label><br>
+<label><input type='radio' name='q3' value='Qualquer organização'> Qualquer organização</label><br>
+<label><input type='radio' name='q3' value='Apenas startups'> Apenas startups</label><br>
+</div>
+<div class='question'>
+<p>4. Diferença entre MRP e ERP:</p>
+<label><input type='radio' name='q4' value='MRP é produção, ERP é empresa toda'> MRP é produção, ERP é empresa toda</label><br>
+<label><input type='radio' name='q4' value='MRP é mais novo'> MRP é mais novo</label><br>
+<label><input type='radio' name='q4' value='ERP é limitado'> ERP é limitado</label><br>
+</div>
+<div class='question'>
+<p>5. Benefício do MRP:</p>
+<label><input type='radio' name='q5' value='Mais estoque'> Mais estoque</label><br>
+<label><input type='radio' name='q5' value='Menos custos'> Menos custos</label><br>
+<label><input type='radio' name='q5' value='Mais papel'> Mais papel</label><br>
+</div>
+<div class='question'>
+<p>6. Desafio do ERP:</p>
+<label><input type='radio' name='q6' value='Baixo custo'> Baixo custo</label><br>
+<label><input type='radio' name='q6' value='Alto custo e resistência'> Alto custo e resistência</label><br>
+<label><input type='radio' name='q6' value='Fácil instalação'> Fácil instalação</label><br>
+</div>
+<div class='question'>
+<p>7. Tendência do ERP:</p>
+<label><input type='radio' name='q7' value='Em CD'> Em CD</label><br>
+<label><input type='radio' name='q7' value='Em nuvem'> Em nuvem</label><br>
+<label><input type='radio' name='q7' value='Analógico'> Analógico</label><br>
+</div>
+<div class='question'>
+<p>8. MRP usa sensores via:</p>
+<label><input type='radio' name='q8' value='USB'> USB</label><br>
+<label><input type='radio' name='q8' value='IoT'> IoT</label><br>
+<label><input type='radio' name='q8' value='WiFi'> WiFi</label><br>
+</div>
+<div class='question'>
+<p>9. ERP integra:</p>
+<label><input type='radio' name='q9' value='Finanças, RH, vendas'> Finanças, RH, vendas</label><br>
+<label><input type='radio' name='q9' value='Somente TI'> Somente TI</label><br>
+<label><input type='radio' name='q9' value='Apenas RH'> Apenas RH</label><br>
+</div>
+<div class='question'>
+<p>10. MRP é usado em:</p>
+<label><input type='radio' name='q10' value='Escolas'> Escolas</label><br>
+<label><input type='radio' name='q10' value='Indústrias'> Indústrias</label><br>
+<label><input type='radio' name='q10' value='Lojas'> Lojas</label><br>
+</div>
+<button type="button" onclick="salvar()">Próxima Aula</button>
+  </form>
+  <script>
+    function salvar() {
+      let acertos = 0;
+      const respostas = {
+        q1: `Planejar materiais`,
+        q2: `90`,
+        q3: `Qualquer organização`,
+        q4: `MRP é produção, ERP é empresa toda`,
+        q5: `Menos custos`,
+        q6: `Alto custo e resistência`,
+        q7: `Em nuvem`,
+        q8: `IoT`,
+        q9: `Finanças, RH, vendas`,
+        q10: `Indústrias`,
+      };
+      for (let i = 1; i <= 10; i++) {
+        let marcada = document.querySelector(`input[name='q${i}']:checked`);
+        if (marcada && marcada.value === respostas[`q${i}`]) acertos++;
+      }
+      localStorage.setItem('nota_mrp_erp', acertos);
+      window.location.href = 'temas_trabalhos.html';
+    }
+  </script>
+</body>
+</html>

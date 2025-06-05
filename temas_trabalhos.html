@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Temas_trabalhos</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    button { padding: 10px 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Teste - Temas_trabalhos</h1>
+  <form id="form">
+<div class='question'>
+<p>1. CRM serve para:</p>
+<label><input type='radio' name='q1' value='Gerenciar clientes'> Gerenciar clientes</label><br>
+<label><input type='radio' name='q1' value='Criar sites'> Criar sites</label><br>
+<label><input type='radio' name='q1' value='Editar vídeos'> Editar vídeos</label><br>
+</div>
+<div class='question'>
+<p>2. BI transforma dados em:</p>
+<label><input type='radio' name='q2' value='Imagens'> Imagens</label><br>
+<label><input type='radio' name='q2' value='Informações úteis'> Informações úteis</label><br>
+<label><input type='radio' name='q2' value='Vídeos'> Vídeos</label><br>
+</div>
+<div class='question'>
+<p>3. ERP é:</p>
+<label><input type='radio' name='q3' value='Um sistema de RH'> Um sistema de RH</label><br>
+<label><input type='radio' name='q3' value='Sistema integrado de gestão'> Sistema integrado de gestão</label><br>
+<label><input type='radio' name='q3' value='Planilha de vendas'> Planilha de vendas</label><br>
+</div>
+<div class='question'>
+<p>4. Transformação Digital usa:</p>
+<label><input type='radio' name='q4' value='Papel'> Papel</label><br>
+<label><input type='radio' name='q4' value='Tecnologia'> Tecnologia</label><br>
+<label><input type='radio' name='q4' value='Fax'> Fax</label><br>
+</div>
+<div class='question'>
+<p>5. CRM melhora o:</p>
+<label><input type='radio' name='q5' value='Design'> Design</label><br>
+<label><input type='radio' name='q5' value='Atendimento e fidelização'> Atendimento e fidelização</label><br>
+<label><input type='radio' name='q5' value='Preço'> Preço</label><br>
+</div>
+<div class='question'>
+<p>6. BI ajuda na:</p>
+<label><input type='radio' name='q6' value='Tomada de decisão'> Tomada de decisão</label><br>
+<label><input type='radio' name='q6' value='Redação de emails'> Redação de emails</label><br>
+<label><input type='radio' name='q6' value='Montagem de sites'> Montagem de sites</label><br>
+</div>
+<div class='question'>
+<p>7. ERP integra:</p>
+<label><input type='radio' name='q7' value='Financeiro e RH'> Financeiro e RH</label><br>
+<label><input type='radio' name='q7' value='Redes sociais'> Redes sociais</label><br>
+<label><input type='radio' name='q7' value='TI e marketing'> TI e marketing</label><br>
+</div>
+<div class='question'>
+<p>8. Transformação digital torna empresas:</p>
+<label><input type='radio' name='q8' value='Mais lentas'> Mais lentas</label><br>
+<label><input type='radio' name='q8' value='Mais ágeis e inovadoras'> Mais ágeis e inovadoras</label><br>
+<label><input type='radio' name='q8' value='Mais burocráticas'> Mais burocráticas</label><br>
+</div>
+<div class='question'>
+<p>9. CRM registra:</p>
+<label><input type='radio' name='q9' value='Erros'> Erros</label><br>
+<label><input type='radio' name='q9' value='Histórico de compras'> Histórico de compras</label><br>
+<label><input type='radio' name='q9' value='Vídeos'> Vídeos</label><br>
+</div>
+<div class='question'>
+<p>10. BI é um conjunto de:</p>
+<label><input type='radio' name='q10' value='Problemas'> Problemas</label><br>
+<label><input type='radio' name='q10' value='Ferramentas de análise'> Ferramentas de análise</label><br>
+<label><input type='radio' name='q10' value='Jogos'> Jogos</label><br>
+</div>
+<button type="button" onclick="salvar()">Próxima Aula</button>
+  </form>
+  <script>
+    function salvar() {
+      let acertos = 0;
+      const respostas = {
+        q1: `Gerenciar clientes`,
+        q2: `Informações úteis`,
+        q3: `Sistema integrado de gestão`,
+        q4: `Tecnologia`,
+        q5: `Atendimento e fidelização`,
+        q6: `Tomada de decisão`,
+        q7: `Financeiro e RH`,
+        q8: `Mais ágeis e inovadoras`,
+        q9: `Histórico de compras`,
+        q10: `Ferramentas de análise`,
+      };
+      for (let i = 1; i <= 10; i++) {
+        let marcada = document.querySelector(`input[name='q${i}']:checked`);
+        if (marcada && marcada.value === respostas[`q${i}`]) acertos++;
+      }
+      localStorage.setItem('nota_temas_trabalhos', acertos);
+      window.location.href = 'resultado.html';
+    }
+  </script>
+</body>
+</html>
