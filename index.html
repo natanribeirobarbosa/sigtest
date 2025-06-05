@@ -73,6 +73,7 @@
 <label><input type='radio' name='q10' value='Concorrentes'> Concorrentes</label><br>
 </div>
 <button type="button" onclick="salvar()">Próxima Aula</button>
+    <button type="submit">Ver Resultado</button>
   </form>
 
 <p id="score" style="font-weight: bold;"></p>
@@ -116,5 +117,24 @@
       window.location.href = 'aula6.html';
     }
   </script>
+  
+<script>
+  function checkAnswers(event) {
+    event.preventDefault(); // Impede o reload
+    let correct = 0;
+    const total = 10;
+    const form = document.getElementById('quizForm');
+    const answers = form.querySelectorAll('input[type="radio"]:checked');
+
+    answers.forEach(answer => {
+      if (answer.value === "true") {
+        correct++;
+      }
+    });
+
+    const scoreText = `Você acertou ${correct} de ${total} perguntas.`;
+    document.getElementById("score").innerText = scoreText;
+  }
+</script>
 </body>
 </html>
