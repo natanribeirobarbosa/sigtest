@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula5</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .question { margin-bottom: 20px; }
+    button { padding: 10px 20px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Teste - Aula5</h1>
+  <form id="form" onsubmit="return checkAnswers()">
+<div class='question'>
+<p>1. O que os SPTs automatizam?</p>
+<label><input type='radio' name='q1' value='Processos rotineiros'> Processos rotineiros</label><br>
+<label><input type='radio' name='q1' value='Relatórios gerenciais'> Relatórios gerenciais</label><br>
+<label><input type='radio' name='q1' value='Decisões estratégicas'> Decisões estratégicas</label><br>
+</div>
+<div class='question'>
+<p>2. Qual a função dos SIGs?</p>
+<label><input type='radio' name='q2' value='Gerar relatórios'> Gerar relatórios</label><br>
+<label><input type='radio' name='q2' value='Tomar decisões'> Tomar decisões</label><br>
+<label><input type='radio' name='q2' value='Executar pagamentos'> Executar pagamentos</label><br>
+</div>
+<div class='question'>
+<p>3. Para que servem os SADs?</p>
+<label><input type='radio' name='q3' value='Executar tarefas'> Executar tarefas</label><br>
+<label><input type='radio' name='q3' value='Analisar dados para decisões'> Analisar dados para decisões</label><br>
+<label><input type='radio' name='q3' value='Emitir boletos'> Emitir boletos</label><br>
+</div>
+<div class='question'>
+<p>4. Quem usa os SAEs?</p>
+<label><input type='radio' name='q4' value='Clientes'> Clientes</label><br>
+<label><input type='radio' name='q4' value='Técnicos'> Técnicos</label><br>
+<label><input type='radio' name='q4' value='Executivos'> Executivos</label><br>
+</div>
+<div class='question'>
+<p>5. O que os SI tornam mais eficiente?</p>
+<label><input type='radio' name='q5' value='Pagamentos'> Pagamentos</label><br>
+<label><input type='radio' name='q5' value='Processos'> Processos</label><br>
+<label><input type='radio' name='q5' value='Clientes'> Clientes</label><br>
+</div>
+<div class='question'>
+<p>6. Qual vantagem dos SI?</p>
+<label><input type='radio' name='q6' value='Lentidão'> Lentidão</label><br>
+<label><input type='radio' name='q6' value='Mais papel'> Mais papel</label><br>
+<label><input type='radio' name='q6' value='Decisões rápidas'> Decisões rápidas</label><br>
+</div>
+<div class='question'>
+<p>7. Qual tipo de vantagem os SI oferecem?</p>
+<label><input type='radio' name='q7' value='Concorrência'> Concorrência</label><br>
+<label><input type='radio' name='q7' value='Vantagem competitiva'> Vantagem competitiva</label><br>
+<label><input type='radio' name='q7' value='Economia doméstica'> Economia doméstica</label><br>
+</div>
+<div class='question'>
+<p>8. O que melhora com bons sistemas?</p>
+<label><input type='radio' name='q8' value='Marketing'> Marketing</label><br>
+<label><input type='radio' name='q8' value='Operações'> Operações</label><br>
+<label><input type='radio' name='q8' value='Reuniões'> Reuniões</label><br>
+</div>
+<div class='question'>
+<p>9. Com SI as empresas criam novos:</p>
+<label><input type='radio' name='q9' value='Ramos'> Ramos</label><br>
+<label><input type='radio' name='q9' value='Produtos'> Produtos</label><br>
+<label><input type='radio' name='q9' value='Sites'> Sites</label><br>
+</div>
+<div class='question'>
+<p>10. SI fortalecem o relacionamento com:</p>
+<label><input type='radio' name='q10' value='Bancos'> Bancos</label><br>
+<label><input type='radio' name='q10' value='Clientes'> Clientes</label><br>
+<label><input type='radio' name='q10' value='Concorrentes'> Concorrentes</label><br>
+</div>
+<button type="button" onclick="salvar()">Próxima Aula</button>
+  </form>
+
+<p id="score" style="font-weight: bold;"></p>
+<script>
+  function checkAnswers() {
+    let correct = 0;
+    const total = 10;
+    const form = document.querySelector('form');
+    const answers = form.querySelectorAll('input[type="radio"]:checked');
+    answers.forEach(answer => {
+      if (answer.value === "true") {
+        correct++;
+      }
+    });
+    const scoreText = `Você acertou ${correct} de ${total} perguntas.`;
+    document.getElementById("score").innerText = scoreText;
+    return false; // impede o envio do formulário
+  }
+</script>
+
+  <script>
+    function salvar() {
+      let acertos = 0;
+      const respostas = {
+        q1: `Processos rotineiros`,
+        q2: `Gerar relatórios`,
+        q3: `Analisar dados para decisões`,
+        q4: `Executivos`,
+        q5: `Processos`,
+        q6: `Decisões rápidas`,
+        q7: `Vantagem competitiva`,
+        q8: `Operações`,
+        q9: `Produtos`,
+        q10: `Clientes`,
+      };
+      for (let i = 1; i <= 10; i++) {
+        let marcada = document.querySelector(`input[name='q${i}']:checked`);
+        if (marcada && marcada.value === respostas[`q${i}`]) acertos++;
+      }
+      localStorage.setItem('nota_aula5', acertos);
+      window.location.href = 'aula6.html';
+    }
+  </script>
+</body>
+</html>
